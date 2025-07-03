@@ -74,10 +74,10 @@ const HeroCarousel = () => {
       </div>
 
       {/* Location Indicator Overlay */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20 bg-primary/90 backdrop-blur-sm text-primary-foreground py-2 px-4 sm:py-3 sm:px-6 rounded-full shadow-lg max-w-[95vw]">
-        <div className="flex items-center justify-center text-xs sm:text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-          <span className="font-semibold">Now at New Jersey, Pennsylvania</span>
-        </div>
+      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center px-2">
+        <span className="font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap overflow-hidden text-ellipsis text-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-background/80 border border-primary rounded-full py-2 px-4 shadow-lg" style={{boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)'}}>
+          Now at Hamilton, NJ & Bensalem, PA
+        </span>
       </div>
 
       {/* Navigation Arrows */}

@@ -73,10 +73,11 @@ const ComingSoonCarousel = () => {
               className="absolute inset-0 bg-no-repeat"
               style={{ 
                 backgroundImage: `url(${image.src})`,
-                backgroundSize: image.src === "/interior.jpeg" ? "130%" : "cover",
-                backgroundPosition:
-                  image.src === "/interior.jpeg" ? "center 65%" :
-                  "center"
+                backgroundSize:
+                  image.src === "/interior.jpeg"
+                    ? "cover"
+                    : "cover",
+                backgroundPosition: "center",
               }}
             />
           )}
@@ -114,21 +115,27 @@ const ComingSoonCarousel = () => {
         {/* Main Title with Animation (from slide config) and subtitle for other images */}
         {currentIndex !== 0 && (
           <>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in mt-24" style={{color:'#fff', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}>
+            <h2
+              className="font-bold animate-fade-in mt-24 text-gold w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-base sm:text-lg md:text-xl lg:text-2xl mb-2"
+              style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
+            >
               <span className="gradient-text">
                 {images[currentIndex].title}
               </span>
             </h2>
             {/* Subtitle */}
-            <p className="text-lg md:text-2xl mb-8 animate-fade-in-delay font-light" style={{color:'#fff', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}>
+            <p
+              className="animate-fade-in-delay font-light w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-xs sm:text-sm md:text-base lg:text-lg mb-8"
+              style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
+            >
               {images[currentIndex].subtitle}
             </p>
             {/* Countdown Placeholder for other images */}
-            <div className="bg-background/60 backdrop-blur-sm rounded-lg p-6 max-w-md mx-auto animate-shimmer flex flex-col items-center justify-center text-center min-h-[120px]">
-              <p className="text-lg font-semibold text-foreground mb-2 w-full">
+            <div className="bg-background/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 max-w-xs sm:max-w-sm mx-auto animate-shimmer flex flex-col items-center justify-center text-center min-h-[60px] sm:min-h-[80px]">
+              <p className="text-base sm:text-lg font-semibold text-foreground mb-1 w-full">
                 Stay Tuned
               </p>
-              <p className="text-sm text-muted-foreground w-full">
+              <p className="text-xs sm:text-sm text-muted-foreground w-full">
                 We're putting the finishing touches on something amazing
               </p>
             </div>

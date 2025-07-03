@@ -155,8 +155,8 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
 
         {/* Full Menu Content */}
         {selectedLocation && (
-          <div className="p-6">
-            <div className="flex justify-between items-center mb-6">
+          <div className="p-6 pt-0">
+            <div className="sticky top-[72px] z-10 bg-background border-b border-border flex justify-between items-center mb-6 px-0 py-4" style={{ minHeight: '64px' }}>
               <h3 className="text-xl font-semibold text-foreground">
                 {selectedLocation} Menu
               </h3>

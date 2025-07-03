@@ -22,6 +22,7 @@ import MenuModal from "@/components/menu-modal"
 
 const Navigation = () => {
   const [isMenuModalOpen, setIsMenuModalOpen] = React.useState(false)
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false)
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -99,7 +100,7 @@ const Navigation = () => {
 
             {/* Mobile Navigation */}
             <div className="md:hidden">
-              <Sheet>
+              <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
                     <Menu className="h-6 w-6" />
@@ -111,28 +112,40 @@ const Navigation = () => {
                     <Button
                       variant="ghost"
                       className="justify-start text-lg"
-                      onClick={openMenuModal}
+                      onClick={() => {
+                        openMenuModal();
+                        setIsSheetOpen(false);
+                      }}
                     >
                       Menu
                     </Button>
                     <Button
                       variant="ghost"
                       className="justify-start text-lg"
-                      onClick={() => scrollToSection('locations')}
+                      onClick={() => {
+                        scrollToSection('locations');
+                        setIsSheetOpen(false);
+                      }}
                     >
                       Locations
                     </Button>
                     <Button
                       variant="ghost"
                       className="justify-start text-lg"
-                      onClick={() => scrollToSection('events')}
+                      onClick={() => {
+                        scrollToSection('events');
+                        setIsSheetOpen(false);
+                      }}
                     >
                       Private Events
                     </Button>
                     <Button
                       variant="ghost"
                       className="justify-start text-lg"
-                      onClick={() => scrollToSection('about')}
+                      onClick={() => {
+                        scrollToSection('about');
+                        setIsSheetOpen(false);
+                      }}
                     >
                       About Us
                     </Button>

@@ -68,25 +68,13 @@ const ComingSoonNavigation = () => {
 
             {/* Mobile Navigation - Only Locations */}
             <div className="md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <div className="flex flex-col space-y-4 mt-8">
-                    <Button
-                      variant="ghost"
-                      className="justify-start text-lg"
-                      onClick={openLocations}
-                    >
-                      Locations
-                    </Button>
-                  </div>
-                </SheetContent>
-              </Sheet>
+              <Button
+                variant="ghost"
+                className="text-lg font-semibold"
+                onClick={openLocations}
+              >
+                Locations
+              </Button>
             </div>
           </div>
         </div>
