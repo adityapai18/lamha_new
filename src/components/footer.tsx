@@ -35,7 +35,7 @@ const Footer = () => {
             {/* Restaurant Info */}
             <div className="flex flex-col items-center md:items-start">
               <img 
-                src="/logo.jpg" 
+                src="/Logo.jpg" 
                 alt="Logo" 
                 className="h-48 w-auto object-contain mb-4"
               />
