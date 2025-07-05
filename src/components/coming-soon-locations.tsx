@@ -54,20 +54,22 @@ const ComingSoonLocations = ({ isOpen, onClose }: ComingSoonLocationsProps) => {
         <div className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {locations.map((location, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="h-40 overflow-hidden">
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 p-0">
+                <div className="h-40 overflow-hidden flex items-center justify-center relative">
                   <img
                     src={location.image}
                     alt={location.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover shadow-md"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                    <div className="rounded-full px-6 py-2" style={{backgroundColor: '#D4B44A'}}>
+                      <h3 className="text-xl font-bold font-oswald text-black text-center">
+                        {location.name}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-foreground">
-                    {location.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
+                <CardContent className="space-y-3 pl-12 p-6">
                   <div className="flex items-start space-x-3">
                     <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                     <div>

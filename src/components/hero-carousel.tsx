@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { useEffect, useState } from "react"
 
 const images = [
   {
@@ -25,15 +25,17 @@ const images = [
 
 const HeroCarousel = () => {
   const [currentIndex, setCurrentIndex] = React.useState(0)
+  const [showText, setShowText] = useState(true)
+  const [showTextLeft, setShowTextLeft] = useState(true)
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     )
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     )
   }
@@ -43,8 +45,73 @@ const HeroCarousel = () => {
     return () => clearInterval(interval)
   }, [])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowText((prev) => !prev)
+      setShowTextLeft((prev) => !prev)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative h-screen overflow-hidden pt-10">
+      {/* Logo at the very top below navbar */}
+      <div className="absolute top-20 md:top-4 left-1/2 -translate-x-1/2 z-30">
+  <img
+    src="/Logo.jpg"
+    alt="Lamhaa Logo"
+    className="w-[20rem] h-[20rem] md:w-auto md:h-[32rem] object-contain animate-fade-in max-w-none"
+    style={{ filter: "drop-shadow(0 2px 24px #000)" }}
+  />
+</div>
+
+
+      {/* Two oval images side by side at the bottom of the carousel */}
+      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 z-20">
+        <div className="relative w-64 h-32 flex flex-col items-center mt-8 mb-8 md:mt-0 md:mb-0">
+          <div className="w-64 h-32 rounded-full object-cover border-4 shadow-md aspect-[2/1] animated-border"></div>
+          <img
+            src="/Parx.jpg"
+            alt="Benselam"
+            className="w-64 h-32 rounded-full object-cover border-4 border-transparent absolute top-0 left-0"
+            style={{ zIndex: 1 }}
+          />
+          <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-lg border-2 border-white z-10 whitespace-nowrap">
+            Bensalem, PA
+          </span>
+        </div>
+        <div className="relative w-64 h-32 flex flex-col items-center">
+          <div className="w-64 h-32 rounded-full object-cover border-4 shadow-md aspect-[2/1] animated-border"></div>
+          <img
+            src="/sculpture.jpg"
+            alt="Sculpture"
+            className="w-64 h-32 rounded-full object-cover border-4 border-transparent absolute top-0 left-0"
+            style={{ zIndex: 1 }}
+          />
+          <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-lg border-2 border-[#FFD700] z-10 whitespace-nowrap">
+            Hamilton, NJ
+          </span>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .animated-border {
+          border-color: #fff;
+          animation: border-flash 1s infinite alternate;
+        }
+        .animated-border + img + span {
+          z-index: 10;
+        }
+        @keyframes border-flash {
+          0% {
+            border-color: #fff;
+          }
+          100% {
+            border-color: #FFD700;
+          }
+        }
+      `}</style>
+
       {/* Carousel Images */}
       {images.map((image, index) => (
         <div
@@ -61,30 +128,11 @@ const HeroCarousel = () => {
         </div>
       ))}
 
-      {/* Content Overlay */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="text-center text-foreground px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in text-primary">
-            Welcome to Lamhaa
-          </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 animate-fade-in-delay text-muted-foreground">
-            Flavourful Desi Moments
-          </p>
-        </div>
-      </div>
-
-      {/* Location Indicator Overlay */}
-      <div className="absolute top-16 left-1/2 transform -translate-x-1/2 z-20 w-full flex items-center justify-center px-2">
-        <span className="font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap overflow-hidden text-ellipsis text-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-background/80 border border-primary rounded-full py-2 px-4 shadow-lg" style={{boxShadow: '0 2px 16px 0 rgba(0,0,0,0.10)'}}>
-          Now at Hamilton, NJ & Bensalem, PA
-        </span>
-      </div>
-
       {/* Navigation Arrows */}
       <Button
         variant="ghost"
         size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-background/20 hover:bg-background/30 text-foreground"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-background/20 hover:bg-background/30 text-foreground hidden md:flex"
         onClick={prevSlide}
       >
         <ChevronLeft className="h-6 w-6" />
@@ -92,7 +140,7 @@ const HeroCarousel = () => {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-background/20 hover:bg-background/30 text-foreground"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-background/20 hover:bg-background/30 text-foreground hidden md:flex"
         onClick={nextSlide}
       >
         <ChevronRight className="h-6 w-6" />
@@ -114,4 +162,4 @@ const HeroCarousel = () => {
   )
 }
 
-export default HeroCarousel 
+export default HeroCarousel

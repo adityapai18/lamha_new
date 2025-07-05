@@ -67,9 +67,13 @@ const AboutSection = () => {
         {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Our Story
-            </h2>
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+              <h2 className="text-4xl md:text-5xl font text-foreground px-2 md:px-4">
+                Our Story
+              </h2>
+              <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+            </div>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               Founded in 2025, Lamhaa began as a dream to create a dining experience that goes beyond 
               just food. Our name, meaning "moment" in Arabic, reflects our philosophy that every 
@@ -122,10 +126,14 @@ const AboutSection = () => {
         </div>
 
         {/* Values Section */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-            Our Values
-          </h3>
+        <div className="mt-20">
+          <div className="flex items-center justify-center mb-12">
+            <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+            <h3 className="text-3xl font text-foreground px-2 md:px-4">
+              Our Values
+            </h3>
+            <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center hover:shadow-lg transition-shadow bg-card border-border">
               <CardContent className="pt-6">
@@ -175,10 +183,14 @@ const AboutSection = () => {
         </div>
 
         {/* Team Section */}
-        <div>
-          <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-            Meet Our Team
-          </h3>
+        <div className="mt-20">
+          <div className="flex items-center justify-center mb-12">
+            <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+            <h3 className="text-3xl font text-foreground px-2 md:px-4">
+              Meet Our Team
+            </h3>
+            <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FlippableTeamCard
               name="Chef Sarah Ahmed"

@@ -46,15 +46,15 @@ const Navigation = () => {
         <span>Now serving at two locations: <span className="font-semibold">New Jersey & Pennsylvania</span></span>
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b-4 border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img 
                 src="/Logo_2.jpg" 
                 alt="Logo2" 
-                className="h-16 w-auto object-contain"
+                className="h-23 w-auto object-contain"
               />
             </div>
 
@@ -64,7 +64,7 @@ const Navigation = () => {
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+                      className={navigationMenuTriggerStyle() + ' font-oswald font-normal whitespace-nowrap'}
                       onClick={openMenuModal}
                     >
                       Menu
@@ -72,7 +72,7 @@ const Navigation = () => {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+                      className={navigationMenuTriggerStyle() + ' font-oswald font-normal whitespace-nowrap'}
                       onClick={() => scrollToSection('locations')}
                     >
                       Locations
@@ -80,7 +80,7 @@ const Navigation = () => {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+                      className={navigationMenuTriggerStyle() + ' font-oswald font-normal whitespace-nowrap'}
                       onClick={() => scrollToSection('events')}
                     >
                       Private Events
@@ -88,7 +88,7 @@ const Navigation = () => {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+                      className={navigationMenuTriggerStyle() + ' font-oswald font-normal whitespace-nowrap'}
                       onClick={() => scrollToSection('about')}
                     >
                       About Us

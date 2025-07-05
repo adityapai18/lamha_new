@@ -41,6 +41,59 @@ const ComingSoonCarousel = () => {
 
   return (
     <section className="relative h-screen overflow-hidden pt-10">
+      {/* Logo and ovals only on landing page */}
+      {currentIndex === 0 && (
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 pt-2">
+          <img
+            src="/logo.jpg"
+            alt="Lamhaa Logo"
+            className="h-[32rem] md:h-[40rem] w-auto object-contain animate-fade-in"
+            style={{filter: 'drop-shadow(0 2px 24px #000)'}}
+          />
+          {/* Two oval images side by side below the logo */}
+          <div className="flex flex-row justify-center items-center gap-8 mt-4">
+            <img
+              src="/location1.jpg"
+              alt="Location 1"
+              className="w-48 h-24 rounded-full object-cover border-4 border-primary shadow-md aspect-[2/1]"
+            />
+            <img
+              src="/location2.jpg"
+              alt="Location 2"
+              className="w-48 h-24 rounded-full object-cover border-4 border-primary shadow-md aspect-[2/1]"
+            />
+          </div>
+        </div>
+      )}
+      {/* Description text and stay tuned box on other slides */}
+      {currentIndex !== 0 && (
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 pt-2 w-full flex flex-col items-center">
+          <h2
+            className="font-bold animate-fade-in mt-24 text-gold w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-base sm:text-lg md:text-xl lg:text-2xl mb-2"
+            style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
+          >
+            <span className="gradient-text">
+              {images[currentIndex].title}
+            </span>
+          </h2>
+          {/* Subtitle */}
+          <p
+            className="animate-fade-in-delay font-light w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-xs sm:text-sm md:text-base lg:text-lg mb-8"
+            style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
+          >
+            {images[currentIndex].subtitle}
+          </p>
+          {/* Countdown Placeholder for other images */}
+          <div className="bg-background/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 max-w-xs sm:max-w-sm mx-auto animate-shimmer flex flex-col items-center justify-center text-center min-h-[60px] sm:min-h-[80px]">
+            <p className="text-base sm:text-lg font-semibold text-foreground mb-1 w-full">
+              Stay Tuned
+            </p>
+            <p className="text-xs sm:text-sm text-muted-foreground w-full">
+              We're putting the finishing touches on something amazing
+            </p>
+          </div>
+        </div>
+      )}
       {/* Carousel Images */}
       {images.map((image, index) => (
         <div
@@ -81,67 +134,8 @@ const ComingSoonCarousel = () => {
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/80" />
         </div>
       ))}
-
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary/15 rounded-full blur-2xl animate-pulse delay-500" />
-      </div>
-
-      {/* Main Content Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full">
-        {/* Coming Soon Badge - always visible, at the very top */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 inline-flex items-center space-x-2 bg-primary/90 backdrop-blur-sm text-primary-foreground py-3 px-6 rounded-full shadow-lg animate-bounce">
-          <Clock className="h-5 w-5" />
-          <span className="font-semibold text-lg">Coming Soon</span>
-        </div>
-
-        {/* Show Logo only on first image, perfectly centered */}
-        {currentIndex === 0 && (
-          <div className="flex flex-1 min-h-0 items-center justify-center w-full h-full">
-            <img 
-              src="/Logo.jpg" 
-              alt="Lamhaa Logo" 
-              className="h-64 md:h-80 w-auto object-contain animate-fade-in"
-              style={{filter: 'drop-shadow(0 2px 24px #000)'}}
-            />
-          </div>
-        )}
-
-        {/* Main Title with Animation (from slide config) and subtitle for other images */}
-        {currentIndex !== 0 && (
-          <>
-            <h2
-              className="font-bold animate-fade-in mt-24 text-gold w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-base sm:text-lg md:text-xl lg:text-2xl mb-2"
-              style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
-            >
-              <span className="gradient-text">
-                {images[currentIndex].title}
-              </span>
-            </h2>
-            {/* Subtitle */}
-            <p
-              className="animate-fade-in-delay font-light w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center mx-auto whitespace-nowrap overflow-hidden text-ellipsis text-xs sm:text-sm md:text-base lg:text-lg mb-8"
-              style={{color:'#FFD700', textShadow:'0 2px 24px #000, 0 1px 0 #FFD700'}}
-            >
-              {images[currentIndex].subtitle}
-            </p>
-            {/* Countdown Placeholder for other images */}
-            <div className="bg-background/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 max-w-xs sm:max-w-sm mx-auto animate-shimmer flex flex-col items-center justify-center text-center min-h-[60px] sm:min-h-[80px]">
-              <p className="text-base sm:text-lg font-semibold text-foreground mb-1 w-full">
-                Stay Tuned
-              </p>
-              <p className="text-xs sm:text-sm text-muted-foreground w-full">
-                We're putting the finishing touches on something amazing
-              </p>
-            </div>
-          </>
-        )}
-      </div>
 
       {/* Navigation Arrows */}
       <Button

@@ -144,9 +144,13 @@ const MenuSection = () => {
       <section id="menu" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Our Menu
-            </h2>
+            <div className="flex items-center justify-center mb-4">
+              <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+              <h2 className="text-4xl md:text-5xl font text-foreground mb-4 px-2 md:px-4">
+                Our Menu
+              </h2>
+              <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
+            </div>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Discover our carefully curated selection of dishes, crafted with the finest ingredients 
               and inspired by culinary traditions from around the world.

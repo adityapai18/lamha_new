@@ -116,7 +116,7 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Modal Header */}
-        <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center">
+        <div className="sticky top-0 z-30 bg-background border-b border-border p-6 flex justify-between items-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             Full Menu
           </h2>
@@ -156,7 +156,8 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
         {/* Full Menu Content */}
         {selectedLocation && (
           <div className="p-6 pt-0">
-            <div className="sticky top-[72px] z-10 bg-background border-b border-border flex justify-between items-center mb-6 px-0 py-4" style={{ minHeight: '64px' }}>
+            {/* Location Header */}
+            <div className="sticky top-[72px] z-20 bg-background border-b border-border flex justify-between items-center px-0 py-4" style={{ minHeight: '64px' }}>
               <h3 className="text-xl font-semibold text-foreground">
                 {selectedLocation} Menu
               </h3>
@@ -174,11 +175,12 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
                 <CarouselContent>
                   {getMenuForLocation(selectedLocation).map((category, categoryIndex) => (
                     <CarouselItem key={categoryIndex} className="flex justify-center">
-                      <div className="w-full max-w-2xl">
-                        <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-4 border-b border-border pb-2 text-center">
+                      <div className="w-full max-w-2xl relative">
+                        {/* Category Header */}
+                        <h4 className="text-xl md:text-2xl font-semibold text-foreground border-b border-border pb-2 text-center">
                           {category.category}
                         </h4>
-                        <div className="space-y-4">
+                        <div className="space-y-4 pt-4">
                           {category.items.map((item, itemIndex) => (
                             <div key={itemIndex} className="flex justify-between items-start py-2">
                               <div className="flex-1">
