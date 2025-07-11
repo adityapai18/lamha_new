@@ -84,8 +84,8 @@ const PrivateEventsSection = () => {
               const isBYOB = eventType.name === "BYOB & Chill"
               if (isWeddings || isCorporate) {
                 // Use different images for each card
-                const frontImage = isWeddings ? "/haldi.jpg" : "/corporate.webp"
-                const backImage = isWeddings ? "/haldi.jpg" : "/corporate.webp"
+                const frontImage = isWeddings ? "/haldi.jpg" : "/Corporate.webp"
+                const backImage = isWeddings ? "/haldi.jpg" : "/Corporate.webp"
                 const cardTitle = isWeddings ? "Weddings & Celebrations" : "Corporate Events"
                 return (
                   <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">
@@ -159,8 +159,8 @@ const PrivateEventsSection = () => {
                   </div>
                 )
               } else if (isIntimate) {
-                const frontImage = "/intimate.webp"
-                const backImage = "/intimate.webp"
+                const frontImage = "/Intimate.webp"
+                const backImage = "/Intimate.webp"
                 const cardTitle = "Intimate Gatherings"
                 return (
                   <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">
@@ -230,8 +230,8 @@ const PrivateEventsSection = () => {
                   </div>
                 )
               } else if (isBYOB) {
-                const frontImage = "/cheers.jpg"
-                const backImage = "/cheers.jpg"
+                const frontImage = "/Cheers.jpg"
+                const backImage = "/Cheers.jpg"
                 const cardTitle = "BYOB & Chill"
                 return (
                   <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">

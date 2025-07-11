@@ -83,7 +83,7 @@ const HeroCarousel = () => {
         <div className="relative w-64 h-32 flex flex-col items-center">
           <div className="w-64 h-32 rounded-full object-cover border-4 shadow-md aspect-[2/1] animated-border"></div>
           <img
-            src="/sculpture.jpg"
+            src="/Sculpture.jpg"
             alt="Sculpture"
             className="w-64 h-32 rounded-full object-cover border-4 border-transparent absolute top-0 left-0"
             style={{ zIndex: 1 }}
