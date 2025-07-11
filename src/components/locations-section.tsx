@@ -36,7 +36,7 @@ const LocationsSection = () => {
           <div className="flex items-center justify-center mb-4">
             <div className="flex-1 h-px mx-2 md:mx-4" style={{backgroundColor: '#B8943A'}}></div>
             <h2 className="text-4xl md:text-5xl font px-2 md:px-4" style={{color: '#B8943A'}}>
-              Our Locations
+              OUR LOCATIONS
             </h2>
             <div className="flex-1 h-px mx-2 md:mx-4" style={{backgroundColor: '#B8943A'}}></div>
           </div>

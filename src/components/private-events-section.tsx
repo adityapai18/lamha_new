@@ -35,7 +35,7 @@ const eventTypes = [
 
 const PrivateEventsSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
-  const [isFlipped, setIsFlipped] = useState(false)
+  const [isFlipped, setIsFlipped] = useState<{ [key: number]: boolean }>({})
 
   const scrollToContact = () => {
     const element = document.getElementById('contact')
@@ -62,11 +62,11 @@ const PrivateEventsSection = () => {
     <>
       <section id="events" className="py-8" style={{backgroundColor: '#4F4D46'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 mt-16">
             <div className="flex items-center justify-center mb-4">
               <div className="flex-1 h-px mx-2 md:mx-4" style={{backgroundColor: '#D4B44A'}}></div>
               <h2 className="text-4xl md:text-5xl font mb-4 px-2 md:px-4" style={{color: '#D4B44A'}}>
-                Private Events
+                PRIVATE EVENTS
               </h2>
               <div className="flex-1 h-px mx-2 md:mx-4" style={{backgroundColor: '#D4B44A'}}></div>
             </div>
@@ -75,32 +75,39 @@ const PrivateEventsSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 mb-16">
             {eventTypes.map((eventType, index) => {
               const IconComponent = eventType.icon
               const isWeddings = eventType.name === "Weddings & Celebrations"
-              if (isWeddings) {
+              const isCorporate = eventType.name === "Corporate Events"
+              const isIntimate = eventType.name === "Intimate Gatherings"
+              const isBYOB = eventType.name === "BYOB & Chill"
+              if (isWeddings || isCorporate) {
+                // Use different images for each card
+                const frontImage = isWeddings ? "/haldi.jpg" : "/corporate.webp"
+                const backImage = isWeddings ? "/haldi.jpg" : "/corporate.webp"
+                const cardTitle = isWeddings ? "Weddings & Celebrations" : "Corporate Events"
                 return (
-                  <div key={index} className="perspective max-w-xs w-full h-96 mx-auto md:max-w-full">
-                    <div className={`relative w-full h-80 transition-transform duration-500 transform ${isFlipped ? 'rotate-y-180' : ''}`} style={{ transformStyle: 'preserve-3d' }}>
+                  <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">
+                    <div className={`relative w-full h-80 transition-transform duration-500 transform ${isFlipped[index] ? 'rotate-y-180' : ''}`} style={{ transformStyle: 'preserve-3d' }}>
                       {/* Front Side */}
                       <div className="absolute w-full h-full backface-hidden bg-transparent border-border rounded-xl flex flex-col items-center justify-center shadow-lg">
                         <img
-                          src="/haldi.jpg"
-                          alt="Haldi Ceremony"
+                          src={frontImage}
+                          alt={cardTitle}
                           className="absolute inset-0 w-full h-full object-cover rounded-xl"
-                          style={{height: '100%', width: '100%'}}
+                          style={{height: '100%', width: '100%'}} 
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="rounded-full px-6 py-2" style={{backgroundColor: '#B8943A'}}>
-                            <h3 className="text-2xl font-oswald text-black text-center whitespace-nowrap">
-                              Weddings & Celebrations
+                          <div className="rounded-full px-4 py-2 mx-2" style={{backgroundColor: '#B8943A'}}>
+                            <h3 className="text-lg md:text-2xl font-oswald text-black text-center">
+                              {cardTitle}
                             </h3>
                           </div>
                         </div>
                         <button
                           className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
-                          onClick={() => setIsFlipped(true)}
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: true }))}
                           aria-label="Flip card"
                         >
                           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
@@ -109,14 +116,25 @@ const PrivateEventsSection = () => {
                         </button>
                       </div>
                       {/* Back Side */}
-                      <div className="absolute w-full h-full backface-hidden bg-[#FFFDF5] border-border rounded-xl flex flex-col items-start justify-start shadow-lg rotate-y-180 p-8">
-                        <div className="w-full">
-                          <p className="text-lg font-bold mb-6" style={{color: '#B8943A'}}>
+                      <div className="absolute w-full h-full backface-hidden border-border rounded-xl flex flex-col items-start justify-start shadow-lg rotate-y-180 p-4 md:p-8 relative overflow-hidden">
+                        <img
+                          src={backImage}
+                          alt={`${cardTitle} Background`}
+                          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                        />
+                        {/* Overlay for text visibility: weddings (beige), corporate (white/transparent) */}
+                        {isCorporate ? (
+                          <div className="absolute inset-0 bg-white/80 rounded-xl"></div>
+                        ) : (
+                          <div className="absolute inset-0 bg-[#FFFDF5]/80 rounded-xl"></div>
+                        )}
+                        <div className="w-full relative z-10">
+                          <p className="text-base md:text-lg font-bold mb-4 md:mb-6" style={{color: '#B8943A'}}>
                             {eventType.description}
                           </p>
-                          <ul className="space-y-2 pl-4 list-disc">
+                          <ul className="space-y-1 md:space-y-2 pl-4 list-disc">
                             {eventType.features.map((feature, featureIndex) => (
-                              <li key={featureIndex} className="text-base" style={{color: '#B8943A'}}>
+                              <li key={featureIndex} className="text-sm md:text-base" style={{color: '#B8943A'}}>
                                 {feature}
                               </li>
                             ))}
@@ -124,7 +142,149 @@ const PrivateEventsSection = () => {
                         </div>
                         <button
                           className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
-                          onClick={() => setIsFlipped(false)}
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: false }))}
+                          aria-label="Flip card"
+                        >
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
+                            <RotateCcw className="w-7 h-7 text-black hover:text-[#B8943A] transition-colors" />
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <style jsx>{`
+                      .perspective { perspective: 1200px; }
+                      .backface-hidden { backface-visibility: hidden; }
+                      .rotate-y-180 { transform: rotateY(180deg); }
+                    `}</style>
+                  </div>
+                )
+              } else if (isIntimate) {
+                const frontImage = "/intimate.webp"
+                const backImage = "/intimate.webp"
+                const cardTitle = "Intimate Gatherings"
+                return (
+                  <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">
+                    <div className={`relative w-full h-80 transition-transform duration-500 transform ${isFlipped[index] ? 'rotate-y-180' : ''}`} style={{ transformStyle: 'preserve-3d' }}>
+                      {/* Front Side */}
+                      <div className="absolute w-full h-full backface-hidden bg-transparent border-border rounded-xl flex flex-col items-center justify-center shadow-lg">
+                        <img
+                          src={frontImage}
+                          alt={cardTitle}
+                          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                          style={{height: '100%', width: '100%'}} 
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="rounded-full px-4 py-2 mx-2" style={{backgroundColor: '#B8943A'}}>
+                            <h3 className="text-lg md:text-2xl font-oswald text-black text-center">
+                              {cardTitle}
+                            </h3>
+                          </div>
+                        </div>
+                        <button
+                          className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: true }))}
+                          aria-label="Flip card"
+                        >
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
+                            <RotateCcw className="w-7 h-7 text-black hover:text-[#B8943A] transition-colors" />
+                          </span>
+                        </button>
+                      </div>
+                      {/* Back Side */}
+                      <div className="absolute w-full h-full backface-hidden border-border rounded-xl flex flex-col items-start justify-start shadow-lg rotate-y-180 p-4 md:p-8 relative overflow-hidden">
+                        <img
+                          src={backImage}
+                          alt={`${cardTitle} Background`}
+                          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                        />
+                        {/* Overlay for text visibility: white/transparent for intimate */}
+                        <div className="absolute inset-0 bg-white/80 rounded-xl"></div>
+                        <div className="w-full relative z-10">
+                          <p className="text-base md:text-lg font-bold mb-4 md:mb-6" style={{color: '#B8943A'}}>
+                            {eventType.description}
+                          </p>
+                          <ul className="space-y-1 md:space-y-2 pl-4 list-disc">
+                            {eventType.features.map((feature, featureIndex) => (
+                              <li key={featureIndex} className="text-sm md:text-base" style={{color: '#B8943A'}}>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <button
+                          className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: false }))}
+                          aria-label="Flip card"
+                        >
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
+                            <RotateCcw className="w-7 h-7 text-black hover:text-[#B8943A] transition-colors" />
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                    <style jsx>{`
+                      .perspective { perspective: 1200px; }
+                      .backface-hidden { backface-visibility: hidden; }
+                      .rotate-y-180 { transform: rotateY(180deg); }
+                    `}</style>
+                  </div>
+                )
+              } else if (isBYOB) {
+                const frontImage = "/cheers.jpg"
+                const backImage = "/cheers.jpg"
+                const cardTitle = "BYOB & Chill"
+                return (
+                  <div key={index} className="perspective max-w-xs w-full h-80 mx-auto md:max-w-full">
+                    <div className={`relative w-full h-80 transition-transform duration-500 transform ${isFlipped[index] ? 'rotate-y-180' : ''}`} style={{ transformStyle: 'preserve-3d' }}>
+                      {/* Front Side */}
+                      <div className="absolute w-full h-full backface-hidden bg-transparent border-border rounded-xl flex flex-col items-center justify-center shadow-lg">
+                        <img
+                          src={frontImage}
+                          alt={cardTitle}
+                          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                          style={{height: '100%', width: '100%'}} 
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="rounded-full px-4 py-2 mx-2" style={{backgroundColor: '#B8943A'}}>
+                            <h3 className="text-lg md:text-2xl font-oswald text-black text-center">
+                              {cardTitle}
+                            </h3>
+                          </div>
+                        </div>
+                        <button
+                          className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: true }))}
+                          aria-label="Flip card"
+                        >
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
+                            <RotateCcw className="w-7 h-7 text-black hover:text-[#B8943A] transition-colors" />
+                          </span>
+                        </button>
+                      </div>
+                      {/* Back Side */}
+                      <div className="absolute w-full h-full backface-hidden border-border rounded-xl flex flex-col items-start justify-start shadow-lg rotate-y-180 p-4 md:p-8 relative overflow-hidden">
+                        <img
+                          src={backImage}
+                          alt={`${cardTitle} Background`}
+                          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                        />
+                        {/* Overlay for text visibility: white/transparent for BYOB */}
+                        <div className="absolute inset-0 bg-white/80 rounded-xl"></div>
+                        <div className="w-full relative z-10">
+                          <p className="text-base md:text-lg font-bold mb-4 md:mb-6" style={{color: '#B8943A'}}>
+                            {eventType.description}
+                          </p>
+                          <ul className="space-y-1 md:space-y-2 pl-4 list-disc">
+                            {eventType.features.map((feature, featureIndex) => (
+                              <li key={featureIndex} className="text-sm md:text-base" style={{color: '#B8943A'}}>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <button
+                          className="absolute bottom-8 right-8 bg-transparent p-0 shadow-none border-none"
+                          onClick={() => setIsFlipped((prev) => ({ ...prev, [index]: false }))}
                           aria-label="Flip card"
                         >
                           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#B8943A] shadow-md hover:bg-black transition-colors">
@@ -144,19 +304,19 @@ const PrivateEventsSection = () => {
               return (
                 <Card
                   key={index}
-                  className={`border-border hover:border-primary/40 transition-colors max-w-xs w-full h-80 mx-auto md:max-w-full${isWeddings ? '' : ''}`}
+                  className={`border-border hover:border-primary/40 transition-colors max-w-xs w-full h-80 mx-auto md:max-w-full overflow-hidden${isWeddings ? '' : ''}`}
                   style={isWeddings ? {} : {backgroundColor: '#FFFDF5'}}
                 >
                   <CardHeader className={`relative z-10${isWeddings ? ' pt-24' : ''}`}>
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className="p-2 rounded-lg" style={{backgroundColor: 'transparent'}}>
-                        <IconComponent className="w-6 h-6" style={{color: '#B8943A'}} />
+                    <div className="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                      <div className="p-1 md:p-2 rounded-lg" style={{backgroundColor: 'transparent'}}>
+                        <IconComponent className="w-5 h-5 md:w-6 md:h-6" style={{color: '#B8943A'}} />
                       </div>
-                      <CardTitle className="text-2xl font-bold" style={{color: '#B8943A'}}>
+                      <CardTitle className="text-lg md:text-2xl font-bold" style={{color: '#B8943A'}}>
                         {eventType.name}
                       </CardTitle>
                     </div>
-                    <p className="text-lg" style={{color: '#B8943A'}}>
+                    <p className="text-base md:text-lg" style={{color: '#B8943A'}}>
                       {eventType.description}
                     </p>
                     {/* <p className="text-primary font-medium">
@@ -164,11 +324,11 @@ const PrivateEventsSection = () => {
                     </p> */}
                   </CardHeader>
                   <CardContent className="relative z-10">
-                    <ul className="space-y-2">
+                    <ul className="space-y-1 md:space-y-2">
                       {eventType.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center space-x-2" style={{color: '#B8943A'}}>
-                          <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#4F4D46'}}></div>
-                          <span>{feature}</span>
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full flex-shrink-0" style={{backgroundColor: '#4F4D46'}}></div>
+                          <span className="text-sm md:text-base">{feature}</span>
                         </li>
                       ))}
                     </ul>

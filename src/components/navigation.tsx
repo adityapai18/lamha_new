@@ -94,6 +94,14 @@ const Navigation = () => {
                       About Us
                     </NavigationMenuLink>
                   </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle() + ' font-oswald font-normal whitespace-nowrap'}
+                      onClick={() => scrollToSection('team')}
+                    >
+                      Our Team
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
@@ -148,6 +156,16 @@ const Navigation = () => {
                       }}
                     >
                       About Us
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="justify-start text-lg"
+                      onClick={() => {
+                        scrollToSection('team');
+                        setIsSheetOpen(false);
+                      }}
+                    >
+                      Our Team
                     </Button>
                   </div>
                 </SheetContent>

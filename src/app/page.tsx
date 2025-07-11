@@ -4,6 +4,7 @@ import LocationsSection from "@/components/locations-section"
 import PrivateEventsSection from "@/components/private-events-section"
 import AboutSection from "@/components/about-section"
 import Footer from "@/components/footer"
+import TeamSection from "@/components/team-section"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <LocationsSection />
       <PrivateEventsSection />
       <AboutSection />
+      <TeamSection />
       <Footer />
     </main>
   )

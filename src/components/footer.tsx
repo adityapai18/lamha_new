@@ -81,6 +81,15 @@ const Footer = () => {
                     About Us
                   </Button>
                 </li>
+                <li>
+                  <Button 
+                    variant="link" 
+                    className="p-0 h-auto text-muted-foreground hover:text-foreground"
+                    onClick={() => scrollToSection('team')}
+                  >
+                    Our Team
+                  </Button>
+                </li>
               </ul>
             </div>
 
@@ -89,16 +98,16 @@ const Footer = () => {
               <h4 className="font-semibold text-foreground mb-4">Contact</h4>
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-medium text-foreground mb-2">Benselam, Pennsylvania</h5>
+                  <h5 className="font-medium text-foreground mb-2">Bensalem, Pennsylvania</h5>
                   <div className="space-y-1 text-muted-foreground text-sm">
-                    <p>Phone: (555) 123-4567</p>
+                    <p>Phone: (215) 638-0786</p>
                     <p>Email: benselam@lamha.com</p>
                   </div>
                 </div>
                 <div>
                   <h5 className="font-medium text-foreground mb-2">Hamilton, New Jersey</h5>
                   <div className="space-y-1 text-muted-foreground text-sm">
-                    <p>Phone: (555) 987-6543</p>
+                    <p>Phone: (609) 981-7157</p>
                     <p>Email: hamilton@lamha.com</p>
                   </div>
                 </div>
