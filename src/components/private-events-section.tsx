@@ -36,6 +36,21 @@ const eventTypes = [
 const PrivateEventsSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [isFlipped, setIsFlipped] = useState<{ [key: number]: boolean }>({})
+  
+  // Form state variables
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    eventType: '',
+    eventDate: '',
+    guests: '',
+    budgetRange: '',
+    message: ''
+  })
 
   const scrollToContact = () => {
     const element = document.getElementById('contact')
@@ -52,10 +67,81 @@ const PrivateEventsSection = () => {
 
   const openQuoteForm = () => {
     setIsFormOpen(true)
+    setSubmitStatus('idle')
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      eventType: '',
+      eventDate: '',
+      guests: '',
+      budgetRange: '',
+      message: ''
+    })
   }
 
   const closeQuoteForm = () => {
     setIsFormOpen(false)
+    setSubmitStatus('idle')
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Validate required fields
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.eventType || !formData.eventDate || !formData.guests) {
+      setSubmitStatus('error')
+      return
+    }
+
+    setIsLoading(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone,
+          eventType: formData.eventType,
+          date: formData.eventDate,
+          guests: formData.guests,
+          budgetRange: formData.budgetRange,
+          message: formData.message,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        // Reset form after successful submission
+        setTimeout(() => {
+          closeQuoteForm()
+        }, 3000)
+      } else {
+        setSubmitStatus('error')
+        console.error('Error:', data.error)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -448,7 +534,7 @@ const PrivateEventsSection = () => {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -457,6 +543,9 @@ const PrivateEventsSection = () => {
                     <input
                       type="text"
                       required
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -467,6 +556,9 @@ const PrivateEventsSection = () => {
                     <input
                       type="text"
                       required
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -480,6 +572,9 @@ const PrivateEventsSection = () => {
                     <input
                       type="email"
                       required
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -490,6 +585,9 @@ const PrivateEventsSection = () => {
                     <input
                       type="tel"
                       required
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -501,6 +599,9 @@ const PrivateEventsSection = () => {
                   </label>
                   <select
                     required
+                    name="eventType"
+                    value={formData.eventType}
+                    onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option value="">Select Event Type</option>
@@ -534,6 +635,9 @@ const PrivateEventsSection = () => {
                       type="number"
                       min="1"
                       required
+                      name="guests"
+                      value={formData.guests}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -547,6 +651,9 @@ const PrivateEventsSection = () => {
                     <input
                       type="date"
                       required
+                      name="eventDate"
+                      value={formData.eventDate}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -554,7 +661,7 @@ const PrivateEventsSection = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Budget Range
                     </label>
-                    <select className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
+                    <select name="budgetRange" value={formData.budgetRange} onChange={handleInputChange} className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
                       <option value="">Select Budget Range</option>
                       <option value="under-1000">Under $1,000</option>
                       <option value="1000-2500">$1,000 - $2,500</option>
@@ -571,6 +678,9 @@ const PrivateEventsSection = () => {
                   </label>
                   <textarea
                     rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell us more about your event, special requirements, or any questions you have..."
                     className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   ></textarea>
@@ -580,8 +690,9 @@ const PrivateEventsSection = () => {
                   <Button
                     type="submit"
                     className="flex-1 bg-primary text-primary-foreground py-3 rounded-lg hover:bg-primary/90 transition-all font-bold"
+                    disabled={isLoading}
                   >
-                    Submit Quote Request
+                    {isLoading ? 'Sending...' : 'Submit Quote Request'}
                   </Button>
                   <Button
                     type="button"
@@ -593,6 +704,21 @@ const PrivateEventsSection = () => {
                   </Button>
                 </div>
               </form>
+
+              {submitStatus === 'success' && (
+                <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-center">
+                  <p className="text-sm font-medium">
+                    Quote request submitted successfully! We will get back to you shortly.
+                  </p>
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-center">
+                  <p className="text-sm font-medium">
+                    Failed to submit quote request. Please try again later or contact support.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

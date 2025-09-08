@@ -1,13 +1,13 @@
 "use client"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Heart, Users, Clock } from "lucide-react"
+import { Rocket, UtensilsCrossed, Handshake, Sparkles } from "lucide-react"
 import { useState } from "react"
 
 const stats = [
-  { icon: Award, value: "15+", label: "Years of Excellence" },
-  { icon: Heart, value: "10,000+", label: "Happy Customers" },
-  { icon: Users, value: "50+", label: "Team Members" },
-  { icon: Clock, value: "24/7", label: "Dedication" }
+  { icon: Rocket, title: "Fresh Beginnings", desc: "A new chapter in flavorful dining, rooted in passion." },
+  { icon: UtensilsCrossed, title: "Crafted with Love", desc: "Every dish is made with care to create lasting memories." },
+  { icon: Handshake, title: "Community First", desc: "We believe in bringing people together over good food." },
+  { icon: Sparkles, title: "Always Evolving", desc: "Blending tradition with modern culinary creativity." }
 ]
 
 // Flippable card component for team members
@@ -27,7 +27,7 @@ export function FlippableTeamCard({ name, role, brief, backDetails }: FlippableT
         {/* Front Side */}
         <div className="absolute w-full h-full backface-hidden rounded-lg flex flex-col items-center justify-center p-6 shadow-lg" style={{backgroundColor: '#FFFDF5'}}>
           <div className="w-32 h-32 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#B8943A'}}>
-            <Users className="w-16 h-16" style={{color: '#4F4D46'}} />
+            <Rocket className="w-16 h-16" style={{color: '#4F4D46'}} />
           </div>
           <h4 className="text-xl font-semibold mb-2" style={{color: '#4F4D46'}}>{name}</h4>
           <p className="font-medium mb-3" style={{color: '#B8943A'}}>{role}</p>
@@ -77,18 +77,13 @@ const AboutSection = () => {
               <div className="flex-1 h-px mx-2 md:mx-4" style={{backgroundColor: '#B8943A'}}></div>
             </div>
             <p className="text-lg mb-6 leading-relaxed" style={{color: '#4F4D46'}}>
-              Founded in 2025, Lamhaa began as a dream to create a dining experience that goes beyond 
-              just food. Our name, meaning "moment" in Arabic, reflects our philosophy that every 
-              meal should be a memorable moment shared with loved ones.
+            Founded in 2025, Lamhaa was born from a simple idea — that food should be more than a meal; it should be a moment worth remembering. Inspired by the Arabic word for "moment," our name reflects our belief that every dining experience is an opportunity to create cherished memories with loved ones.
             </p>
             <p className="text-lg mb-6 leading-relaxed" style={{color: '#4F4D46'}}>
-              What started as a small family restaurant has grown into one of the most 
-              beloved dining destinations, known for our commitment to excellence, innovative cuisine, 
-              and warm hospitality.
+            Lamhaa is our way of bringing people together through flavors that celebrate both tradition and creativity. From carefully crafted recipes to warm hospitality, we strive to make every visit feel special.
             </p>
             <p className="text-lg leading-relaxed" style={{color: '#4F4D46'}}>
-              Today, we continue to honor our roots while embracing modern culinary trends, 
-              creating dishes that tell stories and bring people together.
+            As we begin this journey, our promise is to honor authenticity while embracing innovation, creating dishes that tell stories and connect people at the table.
             </p>
           </div>
           <div className="relative">
@@ -119,10 +114,10 @@ const AboutSection = () => {
                   </div>
                 </div>
                 <div className="text-3xl font-bold mb-2" style={{color: '#4F4D46'}}>
-                  {stat.value}
+                  {stat.title}
                 </div>
                 <div style={{color: '#4F4D46'}}>
-                  {stat.label}
+                  {stat.desc}
                 </div>
               </div>
             )
@@ -142,7 +137,7 @@ const AboutSection = () => {
             <Card className="text-center hover:shadow-lg transition-shadow" style={{backgroundColor: '#4F4D46'}}>
               <CardContent className="pt-6">
                 <div className="w-16 h-16" style={{backgroundColor: '#B8943A', borderRadius: '9999px', margin: '0 auto 1rem auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Heart className="w-8 h-8" style={{color: '#4F4D46'}} />
+                  <UtensilsCrossed className="w-8 h-8" style={{color: '#4F4D46'}} />
                 </div>
                 <h4 className="text-xl font-semibold mb-3" style={{color: '#B8943A'}}>
                   Passion
@@ -157,7 +152,7 @@ const AboutSection = () => {
             <Card className="text-center hover:shadow-lg transition-shadow" style={{backgroundColor: '#4F4D46'}}>
               <CardContent className="pt-6">
                 <div className="w-16 h-16" style={{backgroundColor: '#B8943A', borderRadius: '9999px', margin: '0 auto 1rem auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Award className="w-8 h-8" style={{color: '#4F4D46'}} />
+                  <Handshake className="w-8 h-8" style={{color: '#4F4D46'}} />
                 </div>
                 <h4 className="text-xl font-semibold mb-3" style={{color: '#B8943A'}}>
                   Excellence
@@ -172,7 +167,7 @@ const AboutSection = () => {
             <Card className="text-center hover:shadow-lg transition-shadow" style={{backgroundColor: '#4F4D46'}}>
               <CardContent className="pt-6">
                 <div className="w-16 h-16" style={{backgroundColor: '#B8943A', borderRadius: '9999px', margin: '0 auto 1rem auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Users className="w-8 h-8" style={{color: '#4F4D46'}} />
+                  <Sparkles className="w-8 h-8" style={{color: '#4F4D46'}} />
                 </div>
                 <h4 className="text-xl font-semibold mb-3" style={{color: '#B8943A'}}>
                   Community

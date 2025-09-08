@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowUp } from "lucide-react"
+import { ArrowUp, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import MenuModal from "@/components/menu-modal"
 import { useState } from "react"
@@ -100,16 +100,29 @@ const Footer = () => {
                 <div>
                   <h5 className="font-medium text-foreground mb-2">Bensalem, Pennsylvania</h5>
                   <div className="space-y-1 text-muted-foreground text-sm">
-                    <p>Phone: (215) 638-0786</p>
-                    <p>Email: benselam@lamha.com</p>
+                    <p>Phone: (609) 616-6001</p>
+                    <p>Email: Lamhaa.nj@gmail.com</p>
                   </div>
                 </div>
                 <div>
                   <h5 className="font-medium text-foreground mb-2">Hamilton, New Jersey</h5>
                   <div className="space-y-1 text-muted-foreground text-sm">
-                    <p>Phone: (609) 981-7157</p>
-                    <p>Email: hamilton@lamha.com</p>
+                    <p>Phone: (609) 616-6000</p>
+                    <p>Email: Lamhaa.nj@gmail.com</p>
                   </div>
+                </div>
+                {/* Social Media */}
+                <div>
+                  <h5 className="font-medium text-foreground mb-2">Follow Us</h5>
+                  <a 
+                    href="https://www.instagram.com/lamhaagroup" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    {/* <span>@lamhaagroup</span> */}
+                  </a>
                 </div>
               </div>
             </div>

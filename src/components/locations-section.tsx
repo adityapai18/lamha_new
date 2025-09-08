@@ -5,9 +5,9 @@ const locations = [
   {
     name: "BENSALEM",
     address: "2643 Street Rd",
-    city: "Bensalem, PA",
-    phone: "(215) 638-0786",
-    email: "benselam@lamha.com",
+    city: "Bensalem, PA, 19020",
+    phone: "(609) 616-6001",
+    email: "Lamhaa.nj@gmail.com",
     hours: <p>
     11:00 AM-3:00 PM <br/> 5:00 PM-10:00 PM<br />
     TUESDAY CLOSED
@@ -17,9 +17,9 @@ const locations = [
   {
     name: "HAMILTON",
     address: "133 Youngs Rd",
-    city: "Hamilton Township, NJ",
-    phone: "(609) 981-7157",
-    email: "hamilton@lamha.com",
+    city: "Hamilton Township, NJ, 08619",
+    phone: "(609) 616-6000",
+    email: "Lamhaa.nj@gmail.com",
     hours: <p>
     11:00 AM-3:00 PM <br/> 5:00 PM-10:00 PM<br />
     TUESDAY CLOSED
