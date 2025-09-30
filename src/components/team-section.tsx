@@ -11,31 +11,31 @@ const TeamSection = () => (
         </h3>
         <div className="flex-1 h-px bg-yellow-400 mx-2 md:mx-4"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
+      <div className="flex flex-col items-center gap-8 md:flex-row md:justify-center">
+        <div className="w-full max-w-sm" style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
           <FlippableTeamCard
-            name="Chef Sarah Ahmed"
+            name="Rakesh Naik"
             role="Executive Chef"
-            brief="With over 15 years of culinary experience, Chef Sarah brings her passion for fusion cuisine and commitment to excellence to every dish at Lamhaa."
-            backDetails="Sarah has worked in Michelin-starred kitchens and loves experimenting with global flavors. Favorite dish to cook: Lamb Tagine. Contact: chef.sarah@lamhaa.com"
+            brief="Rakesh Naik, our Executive Chef, brings over 15 years of culinary mastery shaped across India and the U.S. A native of Maharashtra, he began his journey at ITC Maratha in 2006 and has since honed his craft in diverse kitchens, blending tradition with modern artistry."
+            backDetails="With rich experience from Carnival Cruise in Miami, Karma Café in New Jersey, Indeblue in Philadelphia, and Urban Spice in Edison, Rakesh has built a reputation for creativity and consistency. His culinary philosophy draws inspiration from his mother, whose cooking was cherished in their community. Specializing in Lucknowi and Mughlai cuisines, he takes pride in the art of dum cooking, particularly Dum Biryani. Passionate about modern plating and food photography, Rakesh continues to innovate while honoring timeless Indian flavors."
           />
         </div>
-        <div style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
+        <div className="w-full max-w-sm" style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
           <FlippableTeamCard
-            name="Michael Rodriguez"
-            role="General Manager"
-            brief="Michael ensures every guest receives exceptional service and oversees the smooth operation of both Lamhaa locations with dedication and warmth."
-            backDetails="Michael is a hospitality veteran, marathon runner, and coffee enthusiast. Favorite quote: 'Service with a smile.' Contact: michael@lamhaa.com"
+            name="Ajay Shukla"
+            role="Hospitality Manager"
+            brief="Ajay is the architect of the guest experience at Lamhaa. As our General Manager, he ensures that the warmth of our welcome and the precision of our service perfectly complement the creativity of our kitchen."
+            backDetails="A recognized leader in luxury dining, Ajay has held key roles at India’s most respected venues, including Mumbai’s acclaimed Masque, where he pioneered thoughtful, elegant hospitality. At Lamhaa, he focuses on building a culture of excellence—overseeing front-of-house operations, staff training, and service development. His dedication ensures every guest enjoys a seamless, personalized, and truly unforgettable experience."
           />
         </div>
-        <div style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
+        {/* <div style={{backgroundColor: '#FFFDF5', borderRadius: '16px'}}>
           <FlippableTeamCard
             name="Priya Patel"
             role="Events Coordinator"
             brief="Priya specializes in creating unforgettable private events, working closely with clients to bring their vision to life with attention to every detail."
             backDetails="Priya has planned over 200 events and loves adding personal touches. Fun fact: She speaks 4 languages! Contact: priya@lamhaa.com"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   </section>

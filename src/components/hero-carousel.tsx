@@ -77,7 +77,7 @@ const HeroCarousel = () => {
             style={{ zIndex: 1 }}
           />
           <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-lg border-2 border-white z-10 whitespace-nowrap">
-            Bensalem, PA
+            Bensalem, PA - Fully Operational
           </span>
         </div>
         <div className="relative w-64 h-32 flex flex-col items-center">
@@ -89,7 +89,7 @@ const HeroCarousel = () => {
             style={{ zIndex: 1 }}
           />
           <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm font-semibold rounded-full px-4 py-1 shadow-lg border-2 border-[#FFD700] z-10 whitespace-nowrap">
-            Hamilton, NJ
+            Hamilton, NJ - Coming Soon
           </span>
         </div>
       </div>

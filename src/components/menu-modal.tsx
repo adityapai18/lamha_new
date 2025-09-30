@@ -59,7 +59,7 @@ const fullMenuBenselam = [
       { name: "Prawns Koliwada", description: "Succulent, spicy fried prawns. A coastal favorite." , price: "$14.99"},
       { name: "Goat Bhuna", description: "Tender goat, slow-cooked in thick, aromatic, rich gravy." , price: "$16.99"},
       { name: "Amritsari Macchi", description: "Crispy fried fish, Amritsari spices, carom seeds. Punjabi favorite." , price: "$16.99"},
-      { name: "Crispy Egg Katori Chaat", description: "Edible katoris filled with spiced egg, potatoes, chutneys." , price: "$7.99"}
+      { name: "Crispy Egg Katori Chaat", description: "Edible katoris filled with spiced egg, potatoes, chutneys." , price: "$9.99"}
   ]
   },
   {
@@ -67,8 +67,8 @@ const fullMenuBenselam = [
     items: [
       { name: "Paneer Tikka", description: "Smoky, tender paneer marinated in yogurt and spices." , price: "$13.99"},
       { name: "Chaap Shakahari", description: "Creamy soya chaap, mildly spiced, grilled to perfection." , price: "$13.99"},
-      { name: "Tandoori Mushroom", description: "Smoky, flavorful and tender mushrooms, tandoor-kissed." , price: "$13.99"},
-      { name: "Tandoori Pineapple", description: "Sweet pineapple, lightly spiced, charred in the tandoor." , price: "$13.99"}
+      { name: "Tandoori Mushroom", description: "Smoky, flavorful and tender mushrooms, tandoor-kissed." , price: "$11.99"},
+      { name: "Tandoori Pineapple", description: "Sweet pineapple, lightly spiced, charred in the tandoor." , price: "$11.99"}
        ]
   },
   {
@@ -168,9 +168,9 @@ const fullMenuBenselam = [
       { name: "Jigarthanda", description: "South Indian cooling drink. Milk, almond gum, sarsaparilla, ice cream." , price: "$6.99"},
       { name: "Smoked Chaas", description: "Our traditional buttermilk, infused with a unique smoky aroma." , price: "$4.99"},
       { name: "Strawberry Watermelon Lemonade", description: "Zesty lemonade with fresh strawberry or watermelon." , price: "$4.99"},
-      { name: "Orange Pineapple", description: "Tropical blend of fresh orange and pineapple juices." , price: ""},
-      { name: "Dry Fruit Margarita", description: "Rich dry fruit mocktail, tangy margarita twist." , price: ""},
-      { name: "Death by Chocolate Shake", description: "Decadent, rich chocolate shake. Pure indulgence." , price: "$7.99"}
+      { name: "Orange/ Pineapple/ Watermelon Juice", description: "Tropical blend of fresh orange and pineapple juices." , price: "5.99"},
+      { name: "Dry Fruit Margarita", description: "Rich dry fruit mocktail, tangy margarita twist." , price: "9.99"},
+      { name: "Death by Chocolate Shake", description: "Decadent, rich chocolate shake. Pure indulgence." , price: "$8.99"}
     ]
   },
   {
@@ -180,7 +180,7 @@ const fullMenuBenselam = [
       { name: "Orange Kulfi", description: "Homemade Indian ice cream, bright zesty orange flavor." , price: "$6.99"},
       { name: "Angoori Jamun with Rabadi", description: "Mini jamuns in syrup, served with rich rabadi. Classic duo." , price: "$8.99"},
       { name: "Khubani ka Meetha", description: "Sweet, tangy dried apricot dessert. Hyderabadi delight." , price: "$8.99"},
-      { name: "Gadbad Ice-cream", description: "Fun sundae! Multiple ice creams, fruits, nuts, sauces." , price: "$7.99"},
+      { name: "Gadbad Ice-cream", description: "Fun sundae! Multiple ice creams, fruits, nuts, sauces." , price: "$10.99"},
       { name: "Sizzling Brownie w/Vanilla Ice-cream", description: "Warm brownie on a sizzler, vanilla ice cream. Classic indulgence." , price: "$9.99"}
     ]
   }
@@ -234,7 +234,7 @@ const fullMenuHamilton = [
       { name: "Prawns Koliwada", description: "Succulent, spicy fried prawns. A coastal favorite." , price: "$14.99"},
       { name: "Goat Bhuna", description: "Tender goat, slow-cooked in thick, aromatic, rich gravy." , price: "$16.99"},
       { name: "Amritsari Macchi", description: "Crispy fried fish, Amritsari spices, carom seeds. Punjabi favorite." , price: "$16.99"},
-      { name: "Crispy Egg Katori Chaat", description: "Edible katoris filled with spiced egg, potatoes, chutneys." , price: "$7.99"}
+      { name: "Crispy Egg Katori Chaat", description: "Edible katoris filled with spiced egg, potatoes, chutneys." , price: "$9.99"}
   ]
   },
   {
@@ -242,8 +242,8 @@ const fullMenuHamilton = [
     items: [
       { name: "Paneer Tikka", description: "Smoky, tender paneer marinated in yogurt and spices." , price: "$13.99"},
       { name: "Chaap Shakahari", description: "Creamy soya chaap, mildly spiced, grilled to perfection." , price: "$13.99"},
-      { name: "Tandoori Mushroom", description: "Smoky, flavorful and tender mushrooms, tandoor-kissed." , price: "$13.99"},
-      { name: "Tandoori Pineapple", description: "Sweet pineapple, lightly spiced, charred in the tandoor." , price: "$13.99"}
+      { name: "Tandoori Mushroom", description: "Smoky, flavorful and tender mushrooms, tandoor-kissed." , price: "$11.99"},
+      { name: "Tandoori Pineapple", description: "Sweet pineapple, lightly spiced, charred in the tandoor." , price: "$11.99"}
        ]
   },
   {
@@ -343,9 +343,9 @@ const fullMenuHamilton = [
       { name: "Jigarthanda", description: "South Indian cooling drink. Milk, almond gum, sarsaparilla, ice cream." , price: "$6.99"},
       { name: "Smoked Chaas", description: "Our traditional buttermilk, infused with a unique smoky aroma." , price: "$4.99"},
       { name: "Strawberry Watermelon Lemonade", description: "Zesty lemonade with fresh strawberry or watermelon." , price: "$4.99"},
-      { name: "Orange Pineapple", description: "Tropical blend of fresh orange and pineapple juices." , price: ""},
-      { name: "Dry Fruit Margarita", description: "Rich dry fruit mocktail, tangy margarita twist." , price: ""},
-      { name: "Death by Chocolate Shake", description: "Decadent, rich chocolate shake. Pure indulgence." , price: "$7.99"}
+      { name: "Orange/ Pineapple/ Watermelon Juice", description: "Tropical blend of fresh orange and pineapple juices." , price: "5.99"},
+      { name: "Dry Fruit Margarita", description: "Rich dry fruit mocktail, tangy margarita twist." , price: "9.99"},
+      { name: "Death by Chocolate Shake", description: "Decadent, rich chocolate shake. Pure indulgence." , price: "$8.99"}
     ]
   },
   {
@@ -355,7 +355,7 @@ const fullMenuHamilton = [
       { name: "Orange Kulfi", description: "Homemade Indian ice cream, bright zesty orange flavor." , price: "$6.99"},
       { name: "Angoori Jamun with Rabadi", description: "Mini jamuns in syrup, served with rich rabadi. Classic duo." , price: "$8.99"},
       { name: "Khubani ka Meetha", description: "Sweet, tangy dried apricot dessert. Hyderabadi delight." , price: "$8.99"},
-      { name: "Gadbad Ice-cream", description: "Fun sundae! Multiple ice creams, fruits, nuts, sauces." , price: "$7.99"},
+      { name: "Gadbad Ice-cream", description: "Fun sundae! Multiple ice creams, fruits, nuts, sauces." , price: "$10.99"},
       { name: "Sizzling Brownie w/Vanilla Ice-cream", description: "Warm brownie on a sizzler, vanilla ice cream. Classic indulgence." , price: "$9.99"}
     ]
   }
@@ -382,17 +382,24 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div
+        className="rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        style={{ backgroundColor: '#FFFDF5', color: '#4F4D46', border: '1px solid #B8943A' }}
+      >
         {/* Modal Header */}
-        <div className="sticky top-0 z-30 bg-background border-b border-border p-6 flex justify-between items-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+        <div
+          className="sticky top-0 z-30 p-6 flex justify-between items-center"
+          style={{ backgroundColor: '#FFFDF5', borderBottom: '1px solid #B8943A' }}
+        >
+          <h2 className="text-2xl md:text-3xl font-bold" style={{ color: '#4F4D46' }}>
             Full Menu
           </h2>
           <Button
             variant="ghost"
             size="icon"
             onClick={handleClose}
-            className="hover:bg-muted"
+            className="hover:bg-[#B8943A]/15"
+            style={{ color: '#4F4D46' }}
           >
             <X className="h-6 w-6" />
           </Button>
@@ -401,19 +408,19 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
         {/* Location Selection */}
         {!selectedLocation && (
           <div className="p-6">
-            <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
+            <h3 className="text-xl font-semibold mb-6 text-center" style={{ color: '#4F4D46' }}>
               Select a Location
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Button
                 onClick={() => setSelectedLocation("Benselam")}
-                className="h-20 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+                className="h-20 text-lg font-semibold shadow-md transition bg-[#B8943A] hover:bg-[#B8943A]/90 text-[#18181b]"
               >
                 Benselam, Pennsylvania
               </Button>
               <Button
                 onClick={() => setSelectedLocation("Hamilton")}
-                className="h-20 text-lg font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+                className="h-20 text-lg font-semibold shadow-md transition bg-[#B8943A] hover:bg-[#B8943A]/90 text-[#18181b]"
               >
                 Hamilton, New Jersey
               </Button>
@@ -425,14 +432,17 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
         {selectedLocation && (
           <div className="p-6 pt-0">
             {/* Location Header */}
-            <div className="sticky top-[72px] z-20 bg-background border-b border-border flex justify-between items-center px-0 py-4" style={{ minHeight: '64px' }}>
-              <h3 className="text-xl font-semibold text-foreground">
+            <div
+              className="sticky top-[72px] z-20 flex justify-between items-center px-0 py-4"
+              style={{ backgroundColor: '#FFFDF5', borderBottom: '1px solid #B8943A', minHeight: '64px' }}
+            >
+              <h3 className="text-xl font-semibold" style={{ color: '#4F4D46' }}>
                 {selectedLocation} Menu
               </h3>
               <Button
                 variant="outline"
                 onClick={() => setSelectedLocation(null)}
-                className="text-sm"
+                className="text-sm border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]"
               >
                 Change Location
               </Button>
@@ -445,18 +455,21 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
                     <CarouselItem key={categoryIndex} className="flex justify-center">
                       <div className="w-full max-w-2xl relative">
                         {/* Category Header */}
-                        <h4 className="text-xl md:text-2xl font-semibold text-foreground border-b border-border pb-2 text-center mt-6 md:mt-8">
+                        <h4
+                          className="text-xl md:text-2xl font-semibold border-b pb-2 text-center mt-6 md:mt-8"
+                          style={{ color: '#4F4D46', borderColor: '#B8943A' }}
+                        >
                           {category.category}
                         </h4>
                         <div className="space-y-4 pt-4">
                           {category.items.map((item, itemIndex) => (
                             <div key={itemIndex} className="flex justify-between items-start py-2">
                               <div className="flex-1">
-                                <h5 className="font-semibold text-foreground">{item.name}</h5>
-                                <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
+                                <h5 className="font-semibold" style={{ color: '#4F4D46' }}>{item.name}</h5>
+                                <p className="text-sm mt-1" style={{ color: '#4F4D46', opacity: 0.8 }}>{item.description}</p>
                               </div>
                               <div className="ml-4 text-right">
-                                <span className="font-semibold text-foreground">{item.price}</span>
+                                <span className="font-semibold" style={{ color: '#B8943A' }}>{item.price}</span>
                               </div>
                             </div>
                           ))}
@@ -467,8 +480,8 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
                 </CarouselContent>
                 {/* Arrow buttons at the bottom center */}
                 <div className="flex justify-center items-center gap-4 mt-8">
-                  <CarouselPrevious className="static relative left-0 top-0 translate-y-0" />
-                  <CarouselNext className="static relative left-0 top-0 translate-y-0" />
+                  <CarouselPrevious className="static relative left-0 top-0 translate-y-0 border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]" />
+                  <CarouselNext className="static relative left-0 top-0 translate-y-0 border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]" />
                 </div>
               </Carousel>
             </div>
