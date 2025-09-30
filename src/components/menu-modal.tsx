@@ -440,9 +440,8 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
                 {selectedLocation} Menu
               </h3>
               <Button
-                variant="outline"
                 onClick={() => setSelectedLocation(null)}
-                className="text-sm border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]"
+                className="text-sm bg-[#B8943A] text-[#18181b] hover:bg-[#B8943A]/90"
               >
                 Change Location
               </Button>
@@ -480,8 +479,14 @@ const MenuModal = ({ isOpen, onClose }: MenuModalProps) => {
                 </CarouselContent>
                 {/* Arrow buttons at the bottom center */}
                 <div className="flex justify-center items-center gap-4 mt-8">
-                  <CarouselPrevious className="static relative left-0 top-0 translate-y-0 border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]" />
-                  <CarouselNext className="static relative left-0 top-0 translate-y-0 border-[#B8943A] text-[#4F4D46] hover:bg-[#B8943A] hover:text-[#18181b]" />
+                  <CarouselPrevious
+                    variant="default"
+                    className="static relative left-0 top-0 translate-y-0 bg-[#B8943A] text-[#18181b] hover:bg-[#B8943A]/90 border-transparent disabled:bg-[#B8943A]/60 disabled:text-[#18181b]/60"
+                  />
+                  <CarouselNext
+                    variant="default"
+                    className="static relative left-0 top-0 translate-y-0 bg-[#B8943A] text-[#18181b] hover:bg-[#B8943A]/90 border-transparent disabled:bg-[#B8943A]/60 disabled:text-[#18181b]/60"
+                  />
                 </div>
               </Carousel>
             </div>
